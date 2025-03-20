@@ -17,6 +17,11 @@ export default defineConfig({
       pool: {
         min: 5,
         max: 20
+      },
+      connection: {
+        ssl: {
+          rejectUnauthorized: false
+        }
       }
     },
     http: {
