@@ -26,10 +26,19 @@ const config = {
   // Simplified rewrites for India-only store
   rewrites() {
     return [
-      // Map root paths to India region
+      // Exclude specific paths from rewrites
       {
-        source: "/:path*",
-        destination: "/in/:path*",
+        source: '/cms/:path*',
+        destination: '/cms/:path*',
+      },
+      {
+        source: '/api/:path*',
+        destination: '/api/:path*',
+      },
+      // Map all other paths to India region
+      {
+        source: '/:path*',
+        destination: '/in/:path*',
       }
     ];
   },

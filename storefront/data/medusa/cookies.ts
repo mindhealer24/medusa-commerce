@@ -55,8 +55,8 @@ export const getCartId = async () => {
 export const setCartId = async (cartId: string) => {
   (await cookies()).set("_medusa_cart_id", cartId, {
     httpOnly: true,
-    maxAge: 60 * 60 * 24 * 7,
-    sameSite: "strict",
+    maxAge: 60 * 60 * 24,
+    sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
   });
 };
