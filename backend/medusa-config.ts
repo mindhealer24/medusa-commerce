@@ -1,8 +1,6 @@
 import { defineConfig, loadEnv, Modules } from "@medusajs/framework/utils";
-import path from "path";
 
-// Don't import the connection factory directly to avoid circular dependencies
-// import connectionFactory from "./src/overrides/connection-factory";
+loadEnv(process.env.NODE_ENV, process.cwd());
 
 export default defineConfig({
   projectConfig: {
@@ -17,11 +15,6 @@ export default defineConfig({
       pool: {
         min: 5,
         max: 20
-      },
-      connection: {
-        ssl: {
-          rejectUnauthorized: false
-        }
       }
     },
     http: {
