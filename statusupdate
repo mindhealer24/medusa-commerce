@@ -1,0 +1,26 @@
+# Medusa Database Connection Performance Troubleshooting Document
+
+## Issue We Were Trying to Solve
+
+Medusa.js is establishing multiple redundant database connections during server startup, which causes performance issues when the database is hosted in a different datacenter than the application. Specifically:
+
+1. Medusa creates a new database connection for each module it loads (14+ connections)
+2. Each connection performs a validation query (`select 1 from pg_database where datname = 'postgres'`)
+3. With high network latency, these redundant connections and validation queries significantly slow down the application
+
+## Our Solution Approach
+
+We implemented a custom connection factory (`connection-factory.ts`) with several optimizations:
+- A shared global connection pool that's reused across modules
+- Patching MikroORM's PostgreSQL driver to skip redundant validation queries
+- Tracking and logging statistics on database query performance
+- Optimizing currency loading to only load essential currencies
+
+
+## Current Status
+
+We've determined that our connection factory is not being loaded by Medusa during startup, despite being properly referenced in the configuration. This is likely due to how Medusa resolves paths when loading custom components. 
+
+The `datname` validation queries continue to appear in the logs (14+ instances), which confirms our optimizations aren't being applied. Our next attempt would be to fix the path resolution issue to ensure the connection factory is properly loaded.
+
+#

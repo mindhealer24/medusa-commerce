@@ -1,0 +1,38 @@
+I've created comprehensive documentation and backup files for your India-only store changes.
+Here's a summary of what's been created:
+
+Detailed Documentation:
+india-only-changes/DOCUMENTATION.md - A detailed explanation of all changes made, including:
+
+Original code vs. new code
+Reasoning behind each change
+Line-by-line explanations
+
+
+Original Files Backup:
+
+india-only-changes/original-files/ - Contains original versions of all modified files:
+next.config.mjs.original
+header.tsx.original
+localized-link.tsx.original
+config.ts.original
+
+
+Reversion Script:
+
+india-only-changes/SCRIPT.sh - An executable script that can automatically revert all changes
+Made executable with chmod +x
+
+
+README:
+india-only-changes/README.md - Overview of the changes and instructions for reverting them
+If you ever need to revert back to the multi-country store, you have two options:
+Manual Reversion: Copy the original files back to their respective locations following the instructions in the README.
+Automated Reversion: Run the provided script:
+   cd india-only-changes
+   ./SCRIPT.sh
+
+  The documentation explains in detail what changes were made to each file and why,
+  making it easy to understand the modifications at a later time. 
+  The backup of original files ensures you can easily restore the 
+  multi-country functionality whenever needed.

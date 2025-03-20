@@ -1,0 +1,446 @@
+├── backend
+│   ├── README.md
+│   ├── dump.rdb
+│   ├── instrumentation.js
+│   ├── integration-tests
+│   │   └── http
+│   │       ├── README.md
+│   │       └── health.spec.ts
+│   ├── jest.config.js
+│   ├── medusa-config.ts
+│   ├── package.json
+│   ├── src
+│   │   ├── admin
+│   │   │   ├── README.md
+│   │   │   ├── hooks
+│   │   │   │   └── sanity.ts
+│   │   │   ├── lib
+│   │   │   │   ├── query-key-factory.ts
+│   │   │   │   └── sdk.ts
+│   │   │   ├── routes
+│   │   │   │   └── sanity
+│   │   │   │       └── page.tsx
+│   │   │   ├── tsconfig.json
+│   │   │   └── widgets
+│   │   │       └── sanity-product.tsx
+│   │   ├── api
+│   │   │   ├── README.md
+│   │   │   ├── admin
+│   │   │   │   ├── custom
+│   │   │   │   │   └── route.ts
+│   │   │   │   └── sanity
+│   │   │   │       ├── documents
+│   │   │   │       │   └── [id]
+│   │   │   │       │       ├── route.ts
+│   │   │   │       │       └── sync
+│   │   │   │       │           └── route.ts
+│   │   │   │       └── syncs
+│   │   │   │           └── route.ts
+│   │   │   ├── query
+│   │   │   │   └── route.ts
+│   │   │   ├── store
+│   │   │   │   ├── custom
+│   │   │   │   │   └── route.ts
+│   │   │   │   ├── email
+│   │   │   │   │   ├── _templates
+│   │   │   │   │   │   ├── components
+│   │   │   │   │   │   │   ├── button.tsx
+│   │   │   │   │   │   │   ├── cart.tsx
+│   │   │   │   │   │   │   ├── email-body.tsx
+│   │   │   │   │   │   │   ├── footer.tsx
+│   │   │   │   │   │   │   ├── layout.tsx
+│   │   │   │   │   │   │   ├── products-list.tsx
+│   │   │   │   │   │   │   ├── shipping-address.tsx
+│   │   │   │   │   │   │   └── style.ts
+│   │   │   │   │   │   ├── order-confirmation.tsx
+│   │   │   │   │   │   ├── shipping-confirmation.tsx
+│   │   │   │   │   │   ├── utils.ts
+│   │   │   │   │   │   └── welcome.tsx
+│   │   │   │   │   ├── lib.ts
+│   │   │   │   │   ├── order-confirmation
+│   │   │   │   │   │   └── [id]
+│   │   │   │   │   │       └── route.tsx
+│   │   │   │   │   ├── shipping-confirmation
+│   │   │   │   │   │   └── [id]
+│   │   │   │   │   │       └── route.tsx
+│   │   │   │   │   └── welcome
+│   │   │   │   │       └── [id]
+│   │   │   │   │           └── route.tsx
+│   │   │   │   └── subscribe-to-newsletter
+│   │   │   │       └── route.ts
+│   │   │   └── trigger
+│   │   │       └── route.ts
+│   │   ├── jobs
+│   │   │   └── README.md
+│   │   ├── links
+│   │   │   └── README.md
+│   │   ├── modules
+│   │   │   ├── README.md
+│   │   │   └── sanity
+│   │   │       ├── index.ts
+│   │   │       ├── service.ts
+│   │   │       └── types
+│   │   │           └── index.ts
+│   │   ├── scripts
+│   │   │   ├── README.md
+│   │   │   └── seed.ts
+│   │   ├── subscribers
+│   │   │   ├── README.md
+│   │   │   ├── newsletter-sub.ts
+│   │   │   ├── order-created.ts
+│   │   │   ├── order-shipped.ts
+│   │   │   ├── sanity-category-sync.ts
+│   │   │   ├── sanity-collection-sync.ts
+│   │   │   └── sanity-product-sync.ts
+│   │   └── workflows
+│   │       ├── README.md
+│   │       ├── sanity-full-sync.ts
+│   │       ├── sanity-sync-categories.ts
+│   │       ├── sanity-sync-collections.ts
+│   │       ├── sanity-sync-products.ts
+│   │       └── subscribe-to-newsletter.ts
+│   ├── tsconfig.json
+│   └── yarn.lock
+└── storefront
+    ├── README.md
+    ├── actions
+    │   ├── medusa
+    │   │   ├── cart.ts
+    │   │   └── order.ts
+    │   └── newsletter
+    │       └── index.ts
+    ├── app
+    │   ├── [countryCode]
+    │   │   ├── (checkout)
+    │   │   │   └── checkout
+    │   │   │       ├── _parts
+    │   │   │       │   ├── cart-details
+    │   │   │       │   │   ├── index.tsx
+    │   │   │       │   │   └── line-item.tsx
+    │   │   │       │   └── checkout-form
+    │   │   │       │       ├── address-form
+    │   │   │       │       │   └── index.tsx
+    │   │   │       │       ├── delivery
+    │   │   │       │       │   └── index.tsx
+    │   │   │       │       ├── index.tsx
+    │   │   │       │       ├── payment
+    │   │   │       │       │   ├── button
+    │   │   │       │       │   │   ├── index.tsx
+    │   │   │       │       │   │   ├── manual.tsx
+    │   │   │       │       │   │   └── stripe.tsx
+    │   │   │       │       │   ├── index.tsx
+    │   │   │       │       │   ├── utils.ts
+    │   │   │       │       │   └── wrapper
+    │   │   │       │       │       ├── index.tsx
+    │   │   │       │       │       └── stripe-wrapper.tsx
+    │   │   │       │       └── review.tsx
+    │   │   │       ├── layout.tsx
+    │   │   │       └── page.tsx
+    │   │   ├── (website)
+    │   │   │   ├── [...path]
+    │   │   │   │   ├── _part
+    │   │   │   │   │   └── table-of-content.tsx
+    │   │   │   │   ├── page.tsx
+    │   │   │   │   └── text-page.template.tsx
+    │   │   │   ├── faqs
+    │   │   │   │   ├── _parts
+    │   │   │   │   │   ├── faq-content.tsx
+    │   │   │   │   │   ├── faq-page.tsx
+    │   │   │   │   │   └── search-bar.tsx
+    │   │   │   │   └── page.tsx
+    │   │   │   ├── layout.tsx
+    │   │   │   ├── not-found.tsx
+    │   │   │   ├── order
+    │   │   │   │   └── confirmed
+    │   │   │   │       └── [id]
+    │   │   │   │           ├── _parts
+    │   │   │   │           │   └── order-item.tsx
+    │   │   │   │           └── page.tsx
+    │   │   │   ├── page.tsx
+    │   │   │   └── products
+    │   │   │       ├── [handle]
+    │   │   │       │   ├── _parts
+    │   │   │       │   │   ├── add-to-cart.tsx
+    │   │   │       │   │   ├── addons.tsx
+    │   │   │       │   │   ├── breadcrumbs.tsx
+    │   │   │       │   │   ├── image-carousel.tsx
+    │   │   │       │   │   ├── options.tsx
+    │   │   │       │   │   ├── price.tsx
+    │   │   │       │   │   ├── product-information.tsx
+    │   │   │       │   │   ├── specs.tsx
+    │   │   │       │   │   └── sticky-atc.tsx
+    │   │   │       │   ├── page.tsx
+    │   │   │       │   └── product-context.tsx
+    │   │   │       └── page.tsx
+    │   │   └── layout.tsx
+    │   ├── api
+    │   │   ├── disable-draft
+    │   │   │   └── route.ts
+    │   │   ├── draft
+    │   │   │   └── route.ts
+    │   │   └── og
+    │   │       └── [...info]
+    │   │           ├── product-og.tsx
+    │   │           ├── route.tsx
+    │   │           └── utils.ts
+    │   ├── cms
+    │   │   └── [[...index]]
+    │   │       ├── page.tsx
+    │   │       └── studio.tsx
+    │   ├── dynamic-favicon.ts
+    │   ├── fonts
+    │   │   ├── ClimateCrisis-Regular.ttf
+    │   │   ├── InstrumentSans-Medium.ttf
+    │   │   └── InstrumentSerif-Regular.ttf
+    │   ├── globals.css
+    │   ├── layout.tsx
+    │   └── sitemap.ts
+    ├── components
+    │   ├── context
+    │   │   └── country-code-context.tsx
+    │   ├── exit-preview.tsx
+    │   ├── global
+    │   │   ├── cookie-banner
+    │   │   │   ├── content.tsx
+    │   │   │   └── index.tsx
+    │   │   ├── footer
+    │   │   │   ├── index.tsx
+    │   │   │   └── parts
+    │   │   │       ├── bottom-links.tsx
+    │   │   │       ├── newsletter.tsx
+    │   │   │       └── top-links.tsx
+    │   │   └── header
+    │   │       ├── cart
+    │   │       │   ├── cart-addons.tsx
+    │   │       │   ├── cart-context.tsx
+    │   │       │   ├── cart-footer.tsx
+    │   │       │   ├── cart-heading.tsx
+    │   │       │   ├── cart-ui.tsx
+    │   │       │   ├── event-bus.ts
+    │   │       │   ├── index.tsx
+    │   │       │   ├── line-item
+    │   │       │   │   └── index.tsx
+    │   │       │   └── open-cart-button.tsx
+    │   │       ├── country-selector
+    │   │       │   ├── country-selector-dialog.tsx
+    │   │       │   └── index.tsx
+    │   │       ├── index.tsx
+    │   │       └── parts
+    │   │           ├── announcement-bar.tsx
+    │   │           ├── bottom-border.tsx
+    │   │           ├── hamburger
+    │   │           │   ├── container.tsx
+    │   │           │   └── index.tsx
+    │   │           └── navigation.tsx
+    │   ├── prevent-back-navigation-smooth-scroll.ts
+    │   ├── products
+    │   │   ├── paginated-product
+    │   │   │   ├── grid.tsx
+    │   │   │   └── index.tsx
+    │   │   └── product-refinement
+    │   │       ├── empty-dropdown.tsx
+    │   │       ├── filters
+    │   │       │   ├── clear-button.tsx
+    │   │       │   ├── drop-down.tsx
+    │   │       │   ├── filter-select.tsx
+    │   │       │   ├── index.tsx
+    │   │       │   └── mobile
+    │   │       │       ├── accordion.tsx
+    │   │       │       └── index.tsx
+    │   │       └── index.tsx
+    │   ├── pt.blocks
+    │   │   ├── image.tsx
+    │   │   └── link.tsx
+    │   ├── sections
+    │   │   ├── assurance.tsx
+    │   │   ├── centered-text.tsx
+    │   │   ├── collection-list.tsx
+    │   │   ├── featured-products.tsx
+    │   │   ├── hero
+    │   │   │   ├── index.tsx
+    │   │   │   ├── large-hero.tsx
+    │   │   │   └── simple-hero.tsx
+    │   │   ├── index.ts
+    │   │   ├── marquee.tsx
+    │   │   ├── media-text.tsx
+    │   │   ├── section-renderer.tsx
+    │   │   ├── shopTheLook
+    │   │   │   ├── hotspots-loading.tsx
+    │   │   │   ├── hotspots-ui.tsx
+    │   │   │   ├── hotspots.tsx
+    │   │   │   └── index.tsx
+    │   │   ├── testimonials.tsx
+    │   │   └── types.ts
+    │   ├── shared
+    │   │   ├── accordion.tsx
+    │   │   ├── addons-item.tsx
+    │   │   ├── button.tsx
+    │   │   ├── carousel-section.tsx
+    │   │   ├── carousel.tsx
+    │   │   ├── checkbox.tsx
+    │   │   ├── icon.tsx
+    │   │   ├── icons-button.tsx
+    │   │   ├── input-combobox.tsx
+    │   │   ├── input.tsx
+    │   │   ├── localized-link.tsx
+    │   │   ├── product-card.tsx
+    │   │   ├── rich-text.tsx
+    │   │   ├── sanity-image.tsx
+    │   │   ├── select.tsx
+    │   │   ├── side-dialog.tsx
+    │   │   ├── tag.tsx
+    │   │   ├── toc-select.tsx
+    │   │   ├── typography
+    │   │   │   ├── body.tsx
+    │   │   │   ├── heading.tsx
+    │   │   │   └── label.tsx
+    │   │   └── video.tsx
+    │   └── studio
+    │       └── logo.tsx
+    ├── config.ts
+    ├── data
+    │   ├── medusa
+    │   │   ├── cart.ts
+    │   │   ├── categories.ts
+    │   │   ├── client.ts
+    │   │   ├── collections.ts
+    │   │   ├── cookies.ts
+    │   │   ├── customer.ts
+    │   │   ├── fullfilment.ts
+    │   │   ├── line-items.ts
+    │   │   ├── order.ts
+    │   │   ├── products.ts
+    │   │   └── regions.ts
+    │   └── sanity
+    │       ├── client.ts
+    │       ├── index.ts
+    │       ├── queries
+    │       │   ├── index.ts
+    │       │   └── section.ts
+    │       ├── redirects.ts
+    │       ├── resolve-sanity-route-metadata.ts
+    │       └── sanity-fetch.ts
+    ├── hooks
+    │   ├── use-in-view.tsx
+    │   ├── use-is-hydrated.ts
+    │   ├── use-is-in-iframe.tsx
+    │   ├── use-outside-click.tsx
+    │   └── use-resetable-action-state.tsx
+    ├── next-env.d.ts
+    ├── next.config.mjs
+    ├── package.json
+    ├── pnpm-lock.yaml
+    ├── postcss.config.js
+    ├── prettier.config.cjs
+    ├── public
+    │   ├── favicon-inactive.ico
+    │   ├── favicon.ico
+    │   ├── icons
+    │   │   ├── accordion-bottom.svg
+    │   │   ├── accordion-left.svg
+    │   │   ├── accordion-right.svg
+    │   │   ├── accordion-top.svg
+    │   │   ├── arrow-left-accent.svg
+    │   │   ├── arrow-left-primary.svg
+    │   │   ├── arrow-right-accent.svg
+    │   │   ├── arrow-right-primary.svg
+    │   │   ├── cart.svg
+    │   │   ├── check.svg
+    │   │   ├── checkbox.svg
+    │   │   ├── close.svg
+    │   │   ├── ellips-accent.svg
+    │   │   ├── ellips-primary.svg
+    │   │   ├── hamburger.svg
+    │   │   ├── loading-accent.svg
+    │   │   ├── loading-primary.svg
+    │   │   ├── search.svg
+    │   │   └── trash.svg
+    │   ├── images
+    │   │   ├── logo.svg
+    │   │   └── mini-logo.png
+    │   └── sections
+    │       ├── section.assurance.png
+    │       ├── section.centeredText.png
+    │       ├── section.collectionList.png
+    │       ├── section.featuredProducts.png
+    │       ├── section.hero.png
+    │       ├── section.marquee.png
+    │       ├── section.mediaText.png
+    │       ├── section.shopTheLook.png
+    │       └── section.testimonials.png
+    ├── sanity
+    │   ├── helpers
+    │   │   ├── define-page.ts
+    │   │   └── define-schema.ts
+    │   ├── lib
+    │   │   ├── components
+    │   │   │   └── input-with-characters-count.tsx
+    │   │   └── utils.ts
+    │   ├── schemas
+    │   │   ├── documents
+    │   │   │   ├── category.ts
+    │   │   │   ├── collection.ts
+    │   │   │   ├── faq-category.ts
+    │   │   │   ├── faq-entry.ts
+    │   │   │   ├── modular-page.ts
+    │   │   │   ├── product.ts
+    │   │   │   ├── testimonial.tsx
+    │   │   │   └── text-page.ts
+    │   │   ├── index.ts
+    │   │   ├── objects
+    │   │   │   ├── cta.ts
+    │   │   │   ├── image.ts
+    │   │   │   ├── link.ts
+    │   │   │   ├── og-image.ts
+    │   │   │   ├── pt-body.ts
+    │   │   │   ├── sections-body.ts
+    │   │   │   ├── seo.ts
+    │   │   │   ├── spot.ts
+    │   │   │   └── video.ts
+    │   │   ├── sections
+    │   │   │   ├── assurance.ts
+    │   │   │   ├── centered-text.ts
+    │   │   │   ├── collection-list.ts
+    │   │   │   ├── featured-products.ts
+    │   │   │   ├── hero.ts
+    │   │   │   ├── index.ts
+    │   │   │   ├── marquee.ts
+    │   │   │   ├── media-text.ts
+    │   │   │   ├── shop-the-look.ts
+    │   │   │   └── testimonials.ts
+    │   │   ├── singletons
+    │   │   │   ├── cookie-banner.ts
+    │   │   │   ├── dictionary.ts
+    │   │   │   ├── faq.ts
+    │   │   │   ├── footer.ts
+    │   │   │   ├── header.ts
+    │   │   │   ├── home.ts
+    │   │   │   ├── not-found.ts
+    │   │   │   └── settings.tsx
+    │   │   └── structure
+    │   │       ├── index.ts
+    │   │       └── singletons.ts
+    │   └── shared
+    │       ├── image-with-alt-field.ts
+    │       └── seo-field.ts
+    ├── sanity-typegen.json
+    ├── sanity.cli.ts
+    ├── sanity.config.ts
+    ├── tailwind.config.ts
+    ├── tsconfig.json
+    ├── types
+    │   ├── index.ts
+    │   ├── sanity.generated.d.ts
+    │   └── schema.json
+    └── utils
+        ├── content
+        │   └── toc.ts
+        ├── ids
+        │   └── index.ts
+        ├── is-empty.ts
+        ├── medusa
+        │   ├── error.ts
+        │   ├── get-precentage-diff.ts
+        │   ├── get-product-price.ts
+        │   └── money.ts
+        └── string.ts
