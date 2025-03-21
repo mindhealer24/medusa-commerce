@@ -9,7 +9,7 @@ const clientConfig = {
   dataset: config.sanity.dataset,
   perspective: "published" as ClientPerspective,
   projectId: config.sanity.projectId,
-  useCdn: process.env.NODE_ENV === "production",
+  useCdn: false, //Changed from   useCdn: process.env.NODE_ENV === "production",
 };
 
 export const client = createClient({

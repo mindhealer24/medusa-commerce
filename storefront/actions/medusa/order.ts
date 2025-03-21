@@ -36,9 +36,15 @@ export async function placeOrder() {
 
   if (cartRes?.type === "order") {
     await removeCartId();
-    const countryCode =
-      cartRes.order.shipping_address?.country_code?.toLowerCase();
-    redirect(`/${countryCode}/order/confirmed/${cartRes.order.id}`);
+    
+    // Get the country code but don't include it in the redirect for India-only store
+    // This preserves the variable for potential future multi-country support
+    const countryCode = 
+      cartRes.order.shipping_address?.country_code?.toLowerCase() || "in";
+    
+    // For India-specific store, always redirect without the country code prefix
+    // If multi-country support is added later, this logic can be updated
+    redirect(`/order/confirmed/${cartRes.order.id}`);
   }
 
   return cartRes.cart;
