@@ -68,7 +68,6 @@ export const getRegion = unstable_cache(
           regionMap.set(c?.iso_2 ?? "", region);
         });
       });
-
       const region = countryCode
         ? regionMap.get(countryCode)
         : regionMap.get("us");
@@ -83,3 +82,4 @@ export const getRegion = unstable_cache(
     revalidate: 120,
   },
 );
+

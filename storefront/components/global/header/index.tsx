@@ -5,6 +5,7 @@ import LocalizedLink from "@/components/shared/localized-link";
 import {Suspense} from "react";
 
 import Cart from "./cart";
+import AccountButton from "./parts/account-button";
 import AnnouncementBar from "./parts/announcement-bar";
 import BottomBorder from "./parts/bottom-border";
 import HamburgerContainer from "./parts/hamburger/container";
@@ -31,6 +32,26 @@ export default function Header(props: {countryCode: string} & Header) {
           </Suspense>
         </div>
         <div className="flex items-center gap-s">
+          <Suspense fallback={
+            <div className="relative h-10 w-10 p-2">
+              <div className="h-5 w-5">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+          }>
+            <AccountButton />
+          </Suspense>
           <Suspense
             fallback={
               <div className="relative h-10 w-10 p-2">

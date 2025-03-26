@@ -35,6 +35,7 @@ const config = {
         source: '/api/:path*',
         destination: '/api/:path*',
       },
+
       // Map all other paths to India region
       {
         source: '/:path*',
